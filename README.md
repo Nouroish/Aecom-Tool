@@ -1,0 +1,216 @@
+[index.html.html](https://github.com/user-attachments/files/27576574/index.html.html)
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AECOM - Announcements</title>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--green:#5cb85c;--light-green:#eaf7ea;--dark:#1a1a1a;--muted:#6b6560;--border:#c8c8c8}
+    body{font-family:'Tajawal',sans-serif;background:#f0f0f0;min-height:100vh;display:flex}
+    .panel{width:280px;min-width:260px;background:#fff;padding:20px 16px;display:flex;flex-direction:column;gap:11px;overflow-y:auto;border-right:4px solid var(--green)}
+    .panel-top{display:flex;align-items:center;justify-content:space-between;padding-bottom:10px;border-bottom:2px solid var(--green)}
+    .panel-logo{font-size:1.3rem;font-weight:700;letter-spacing:3px;color:var(--green);direction:ltr}
+    .lang-toggle{display:flex;border:1.5px solid var(--green);border-radius:6px;overflow:hidden}
+    .lang-btn{padding:4px 9px;font-family:'Tajawal',sans-serif;font-size:.78rem;font-weight:700;cursor:pointer;background:#fff;color:var(--green);border:none}
+    .lang-btn.active{background:var(--green);color:#fff}
+    .panel-title{font-size:.85rem;color:var(--muted);font-weight:600}
+    .type-tabs{display:flex;flex-wrap:wrap;gap:5px}
+    .type-tab{flex:1;min-width:55px;padding:6px 3px;border:1.5px solid var(--border);border-radius:6px;background:#fafafa;font-family:'Tajawal',sans-serif;font-size:.75rem;font-weight:600;cursor:pointer;color:var(--muted);text-align:center;transition:all .2s}
+    .type-tab.active{border-color:var(--green);background:var(--green);color:#fff}
+    label{font-size:.76rem;color:var(--muted);font-weight:600;display:block;margin-bottom:3px}
+    input,select{width:100%;padding:7px 9px;border:1px solid var(--border);border-radius:5px;font-family:'Tajawal',sans-serif;font-size:.85rem;color:var(--dark);background:#fafafa;outline:none}
+    input:focus,select:focus{border-color:var(--green)}
+    .field{display:flex;flex-direction:column}
+    .gender-row{display:flex;gap:7px}
+    .gender-btn{flex:1;padding:7px;border:1.5px solid var(--border);border-radius:5px;background:#fafafa;font-family:'Tajawal',sans-serif;font-size:.8rem;cursor:pointer;color:var(--muted);text-align:center;transition:all .2s}
+    .gender-btn.active{border-color:var(--green);background:var(--green);color:#fff;font-weight:700}
+    .divider{border:none;border-top:1px dashed var(--border)}
+    .contact-note{background:var(--light-green);border:1px solid var(--green);border-radius:5px;padding:7px 9px;font-size:.75rem;color:var(--muted);line-height:1.7}
+    .contact-note span{color:var(--green);font-weight:700}
+    .card-selector{display:flex;gap:7px}
+    .card-sel-btn{flex:1;padding:7px;border:1.5px solid var(--border);border-radius:5px;background:#fafafa;font-family:'Tajawal',sans-serif;font-size:.82rem;font-weight:600;cursor:pointer;color:var(--muted);text-align:center;transition:all .2s}
+    .card-sel-btn.active{border-color:var(--green);background:var(--green);color:#fff}
+    .btn-generate{padding:10px;background:var(--dark);color:#fff;border:none;border-radius:7px;font-family:'Tajawal',sans-serif;font-size:.9rem;font-weight:700;cursor:pointer}
+    .btn-generate:hover{background:#333}
+    .btn-pdf{padding:9px;background:var(--green);color:#fff;border:none;border-radius:7px;font-family:'Tajawal',sans-serif;font-size:.88rem;font-weight:700;cursor:pointer}
+    .btn-pdf:hover{background:#4a9e4a}
+    .condolence-fields,.greeting-fields{display:flex;flex-direction:column;gap:11px}
+    .preview-area{flex:1;display:flex;align-items:center;justify-content:center;padding:30px;overflow:auto;background:#e8e8e8}
+    .card-wrap{position:relative;width:440px;height:620px;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,.2)}
+    .card-wrap svg.decor{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:1}
+    .card-content{position:relative;z-index:2;width:100%;height:100%;display:flex;flex-direction:column;padding:44px 40px 36px}
+    .card-content.ar{direction:rtl;text-align:right}
+    .card-content.en{direction:ltr;text-align:left}
+    .card-bar{position:absolute;bottom:0;left:0;right:0;height:11px;z-index:3}
+    .card-logo{font-size:1.2rem;font-weight:700;letter-spacing:4px;color:#1a1a1a;direction:ltr;margin-bottom:6px}
+    .card-ayah{font-family:'Amiri',serif;font-size:.95rem;color:#1a1a1a;line-height:2.1;margin:7px 0}
+    .card-ayah-en{font-family:'Amiri',serif;font-style:italic;font-size:.84rem;color:#1a1a1a;line-height:1.9;margin:7px 0}
+    .card-body{font-size:.79rem;color:#2a2a2a;line-height:2}
+    .card-body strong{font-weight:700}
+    .card-contact{margin-top:auto;padding-top:12px;border-top:1px solid rgba(0,0,0,.15);font-size:.71rem;color:#555;line-height:1.9}
+    .card-contact strong{color:#1a1a1a;display:block;font-size:.74rem;margin-bottom:2px}
+    .greet-logo{font-size:1.2rem;font-weight:700;letter-spacing:4px;color:#1a1a1a;direction:ltr}
+    .greet-intro{font-size:.9rem;color:#3a3a3a;line-height:1.9;margin-top:20px}
+    .greet-title-ar{font-family:'Amiri',serif;font-size:2.2rem;font-weight:400;font-style:italic;color:#1a1a1a;line-height:1.5;margin:8px 0 14px}
+    .greet-title-en{font-family:'Amiri',serif;font-style:italic;font-size:1.7rem;font-weight:400;color:#1a1a1a;line-height:1.5;margin:8px 0 14px}
+    .greet-heading{font-family:'Amiri',serif;font-size:1.05rem;color:#2a2a2a;margin-bottom:8px;font-weight:700}
+    .greet-sub1{font-size:.84rem;color:#3a3a3a;line-height:2;white-space:pre-line}
+    .greet-stars{font-size:.9rem;opacity:.3;margin:11px 0;letter-spacing:12px}
+    .greet-sub2{font-family:'Amiri',serif;font-style:italic;font-size:.84rem;color:#444}
+    .greet-sender{margin-top:auto}
+    .greet-sender-label{font-size:.76rem;color:#6b6560}
+    .greet-sender-name{font-size:1rem;font-weight:700;color:#1a1a1a;margin-top:2px}
+    .greet-sender-title{font-size:.76rem;color:#555;margin-top:2px}
+    .greet-company{font-size:.68rem;color:#888;margin-top:3px;letter-spacing:1px;direction:ltr;display:inline-block}
+    .placeholder-hint{color:#aaa;font-style:italic;font-size:.9rem;text-align:center}
+  </style>
+</head>
+<body>
+<div class="panel" id="panel">
+  <div class="panel-top">
+    <div class="panel-logo">AECOM</div>
+    <div class="lang-toggle">
+      <button class="lang-btn active" id="btn_ar" onclick="setLang('ar')">AR</button>
+      <button class="lang-btn" id="btn_en" onclick="setLang('en')">EN</button>
+    </div>
+  </div>
+  <div class="panel-title" id="lbl_title">نوع الإعلان</div>
+  <div class="type-tabs">
+    <div class="type-tab active" id="tab_condolence" onclick="setType('condolence')">تعزية</div>
+    <div class="type-tab" id="tab_fitr" onclick="setType('fitr')">عيد الفطر</div>
+    <div class="type-tab" id="tab_adha" onclick="setType('adha')">عيد الأضحى</div>
+    <div class="type-tab" id="tab_ramadan" onclick="setType('ramadan')">رمضان</div>
+  </div>
+  <hr class="divider"/>
+  <div class="field">
+    <label id="lbl_cardlang">البطاقة</label>
+    <div class="card-selector">
+      <div class="card-sel-btn active" id="csel_ar" onclick="setCardLang('ar')">عربي</div>
+      <div class="card-sel-btn" id="csel_en" onclick="setCardLang('en')">English</div>
+    </div>
+  </div>
+  <hr class="divider"/>
+  <div class="condolence-fields" id="condolence_fields">
+    <div class="field"><label id="lbl_colleague">اسم الزميل</label><input id="colleague_name" type="text" placeholder="مثال: محمد العتيبي"/></div>
+    <div class="field">
+      <label id="lbl_gender_c">جنس الزميل</label>
+      <div class="gender-row">
+        <div class="gender-btn active" id="btn_male_c" onclick="setGenderC('male')" style="direction:ltr">Male / هو</div>
+        <div class="gender-btn" id="btn_female_c" onclick="setGenderC('female')" style="direction:ltr">Female / هي</div>
+      </div>
+    </div>
+    <div class="field"><label id="lbl_relation">صلة المتوفى</label><select id="relation" onchange="updateContactNote()"></select></div>
+    <div class="contact-note" id="contact_note"></div>
+    <div class="field"><label id="lbl_cname">اسم جهة التواصل</label><input id="contact_name" type="text" placeholder="اسم الشخص للتواصل"/></div>
+    <div class="field"><label id="lbl_email">إيميل</label><input id="contact_email" type="email" placeholder="example@aecom.com"/></div>
+    <div class="field"><label id="lbl_phone">جوال</label><input id="contact_phone" type="text" placeholder="+966 5X XXX XXXX"/></div>
+  </div>
+  <div class="greeting-fields" id="greeting_fields" style="display:none">
+    <div class="field">
+      <label id="lbl_gender_g">الجنس</label>
+      <div class="gender-row">
+        <div class="gender-btn active" id="btn_male_g" onclick="setGenderG('male')">ذكر</div>
+        <div class="gender-btn" id="btn_female_g" onclick="setGenderG('female')">أنثى</div>
+      </div>
+    </div>
+    <div class="field"><label id="lbl_sender_name">اسمك</label><input id="sender_name" type="text" placeholder="مثال: سارة الغامدي"/></div>
+    <div class="field"><label id="lbl_sender_title">المسمى الوظيفي</label><input id="sender_title" type="text" placeholder="مثال: Document Controller"/></div>
+  </div>
+  <button class="btn-generate" id="btn_preview" onclick="generate()">معاينة البطاقة</button>
+  <button class="btn-pdf" id="btn_export" onclick="exportPNG()">تصدير PNG</button>
+</div>
+<div class="preview-area" id="preview_area">
+  <p class="placeholder-hint">أدخل البيانات واضغط "معاينة البطاقة"</p>
+</div>
+<script>
+  let genderC='male',genderG='male',lang='ar',cardLang='ar',currentType='condolence';
+
+  const DECOR_FITR=`<path d="M18 65 C18 36 40 20 60 26 C46 33 40 48 40 65 C40 82 46 97 60 103 C40 110 18 94 18 65Z" fill="#1a1a1a" opacity="0.09"/><polygon points="70,28 73,38 84,38 75,45 78,55 70,48 62,55 65,45 56,38 67,38" fill="#1a1a1a" opacity="0.08"/><polygon points="390,30 393,39 403,39 395,45 398,54 390,48 382,54 385,45 377,39 387,39" fill="#1a1a1a" opacity="0.08"/><polygon points="422,14 424,21 432,21 426,26 428,33 422,28 416,33 418,26 412,21 420,21" fill="#1a1a1a" opacity="0.07"/><ellipse cx="400" cy="155" rx="16" ry="10" fill="#1a1a1a" opacity="0.07" transform="rotate(-20 400 155)"/><path d="M385,148 Q390,140 395,148" stroke="#1a1a1a" stroke-width="1.5" fill="none" opacity="0.07"/><path d="M405,162 Q412,170 417,162" stroke="#1a1a1a" stroke-width="1.5" fill="none" opacity="0.07"/><ellipse cx="432" cy="178" rx="13" ry="8" fill="#1a1a1a" opacity="0.06" transform="rotate(15 432 178)"/><path d="M420,172 Q424,164 429,172" stroke="#1a1a1a" stroke-width="1.5" fill="none" opacity="0.06"/><path d="M435,184 Q441,192 445,184" stroke="#1a1a1a" stroke-width="1.5" fill="none" opacity="0.06"/><ellipse cx="50" cy="460" rx="14" ry="8" fill="#1a1a1a" opacity="0.065" transform="rotate(25 50 460)"/><path d="M38,454 Q42,446 47,454" stroke="#1a1a1a" stroke-width="1.5" fill="none" opacity="0.065"/><path d="M53,466 Q59,474 64,466" stroke="#1a1a1a" stroke-width="1.5" fill="none" opacity="0.065"/><ellipse cx="430" cy="340" rx="12" ry="8" fill="#1a1a1a" opacity="0.06" transform="rotate(-30 430 340)"/><path d="M419,333 Q423,325 428,333" stroke="#1a1a1a" stroke-width="1.5" fill="none" opacity="0.06"/><path d="M432,347 Q438,355 443,347" stroke="#1a1a1a" stroke-width="1.5" fill="none" opacity="0.06"/><polygon points="420,285 422,292 430,292 424,297 426,304 420,299 414,304 416,297 410,292 418,292" fill="#1a1a1a" opacity="0.06"/><polygon points="32,305 34,312 42,312 36,317 38,324 32,319 26,324 28,317 22,312 30,312" fill="#1a1a1a" opacity="0.06"/><path d="M385 568 C385 548 398 537 411 541 C403 545 398 556 398 566 C398 576 403 587 411 590 C398 594 385 585 385 568Z" fill="#1a1a1a" opacity="0.08"/><polygon points="418,543 421,552 431,552 423,558 426,567 418,561 410,567 413,558 405,552 415,552" fill="#1a1a1a" opacity="0.07"/><polygon points="32,596 35,605 45,605 37,611 40,620 32,614 24,620 27,611 19,605 29,605" fill="#1a1a1a" opacity="0.08"/><polygon points="62,622 64,629 72,629 66,634 68,641 62,636 56,641 58,634 52,629 60,629" fill="#1a1a1a" opacity="0.06"/><path d="M0 648 Q220 568 440 648" stroke="#1a1a1a" stroke-width="1" fill="none" opacity="0.04"/>`;
+
+  const DECOR_ADHA=`<ellipse cx="390" cy="88" rx="42" ry="28" fill="#1a1a1a" opacity="0.065"/><circle cx="366" cy="76" r="12" fill="#1a1a1a" opacity="0.055"/><circle cx="382" cy="67" r="14" fill="#1a1a1a" opacity="0.055"/><circle cx="398" cy="67" r="14" fill="#1a1a1a" opacity="0.055"/><circle cx="414" cy="76" r="12" fill="#1a1a1a" opacity="0.055"/><circle cx="426" cy="72" r="14" fill="#1a1a1a" opacity="0.065"/><ellipse cx="437" cy="62" rx="5" ry="7" fill="#1a1a1a" opacity="0.06" transform="rotate(-20 437 62)"/><circle cx="432" cy="70" r="2" fill="#d6e8c4" opacity="0.6"/><rect x="368" y="113" width="6" height="18" rx="3" fill="#1a1a1a" opacity="0.065"/><rect x="380" y="113" width="6" height="18" rx="3" fill="#1a1a1a" opacity="0.065"/><rect x="394" y="113" width="6" height="18" rx="3" fill="#1a1a1a" opacity="0.065"/><rect x="406" y="113" width="6" height="18" rx="3" fill="#1a1a1a" opacity="0.065"/><ellipse cx="68" cy="576" rx="28" ry="18" fill="#1a1a1a" opacity="0.06"/><circle cx="50" cy="567" r="8" fill="#1a1a1a" opacity="0.055"/><circle cx="61" cy="562" r="9" fill="#1a1a1a" opacity="0.055"/><circle cx="74" cy="562" r="9" fill="#1a1a1a" opacity="0.055"/><circle cx="86" cy="567" r="8" fill="#1a1a1a" opacity="0.055"/><circle cx="96" cy="563" r="11" fill="#1a1a1a" opacity="0.06"/><ellipse cx="105" cy="555" rx="4" ry="6" fill="#1a1a1a" opacity="0.055" transform="rotate(-20 105 555)"/><circle cx="101" cy="561" r="2" fill="#d6e8c4" opacity="0.5"/><rect x="54" y="591" width="5" height="14" rx="2" fill="#1a1a1a" opacity="0.06"/><rect x="63" y="591" width="5" height="14" rx="2" fill="#1a1a1a" opacity="0.06"/><rect x="76" y="591" width="5" height="14" rx="2" fill="#1a1a1a" opacity="0.06"/><rect x="85" y="591" width="5" height="14" rx="2" fill="#1a1a1a" opacity="0.06"/><path d="M18 66 C18 40 38 25 57 31 C44 37 38 51 38 66 C38 81 44 95 57 101 C38 108 18 93 18 66Z" fill="#1a1a1a" opacity="0.09"/><polygon points="66,31 69,40 79,40 71,46 74,55 66,49 58,55 61,46 53,40 63,40" fill="#1a1a1a" opacity="0.08"/><polygon points="428,190 430,197 438,197 432,202 434,209 428,204 422,209 424,202 418,197 426,197" fill="#1a1a1a" opacity="0.07"/><path d="M382 568 C382 548 394 537 407 541 C399 545 394 556 394 566 C394 576 399 587 407 590 C394 594 382 585 382 568Z" fill="#1a1a1a" opacity="0.08"/><polygon points="413,543 416,552 426,552 418,558 421,567 413,561 405,567 408,558 400,552 410,552" fill="#1a1a1a" opacity="0.07"/><path d="M0 645 Q220 566 440 645" stroke="#1a1a1a" stroke-width="1" fill="none" opacity="0.04"/>`;
+
+  const DECOR_RAMADAN=`<polygon points="355,14 373,14 377,32 351,32" fill="#1a1a1a" opacity="0.08"/><rect x="349" y="31" width="30" height="88" fill="#1a1a1a" opacity="0.055" rx="2"/><ellipse cx="364" cy="74" rx="9" ry="12" fill="#fff" opacity="0.12"/><ellipse cx="364" cy="74" rx="5" ry="7" fill="#fff" opacity="0.1"/><line x1="357" y1="31" x2="357" y2="119" stroke="#1a1a1a" stroke-width=".8" opacity="0.05"/><line x1="371" y1="31" x2="371" y2="119" stroke="#1a1a1a" stroke-width=".8" opacity="0.05"/><line x1="349" y1="58" x2="379" y2="58" stroke="#1a1a1a" stroke-width=".8" opacity="0.05"/><line x1="349" y1="88" x2="379" y2="88" stroke="#1a1a1a" stroke-width=".8" opacity="0.05"/><polygon points="349,119 353,133 357,122 361,136 365,122 369,136 373,122 375,133 379,119" fill="#1a1a1a" opacity="0.055"/><line x1="364" y1="14" x2="364" y2="4" stroke="#1a1a1a" stroke-width="2" opacity="0.07"/><polygon points="38,478 48,478 51,489 35,489" fill="#1a1a1a" opacity="0.07"/><rect x="33" y="488" width="20" height="60" fill="#1a1a1a" opacity="0.05" rx="2"/><ellipse cx="43" cy="516" rx="6" ry="8" fill="#fff" opacity="0.1"/><line x1="39" y1="488" x2="39" y2="548" stroke="#1a1a1a" stroke-width=".7" opacity="0.04"/><line x1="47" y1="488" x2="47" y2="548" stroke="#1a1a1a" stroke-width=".7" opacity="0.04"/><line x1="33" y1="509" x2="53" y2="509" stroke="#1a1a1a" stroke-width=".7" opacity="0.04"/><line x1="33" y1="528" x2="53" y2="528" stroke="#1a1a1a" stroke-width=".7" opacity="0.04"/><polygon points="33,548 36,559 40,550 44,562 48,550 51,559 53,548" fill="#1a1a1a" opacity="0.05"/><path d="M18 70 C18 44 38 29 57 35 C44 41 38 55 38 70 C38 85 44 99 57 105 C38 112 18 96 18 70Z" fill="#1a1a1a" opacity="0.1"/><polygon points="66,34 69,44 80,44 71,50 74,60 66,53 58,60 61,50 52,44 63,44" fill="#1a1a1a" opacity="0.08"/><polygon points="118,18 121,26 129,26 123,31 125,39 118,34 111,39 113,31 107,26 115,26" fill="#1a1a1a" opacity="0.07"/><polygon points="424,152 426,159 434,159 428,164 430,171 424,166 418,171 420,164 414,159 422,159" fill="#1a1a1a" opacity="0.07"/><polygon points="32,318 34,325 42,325 36,330 38,337 32,332 26,337 28,330 22,325 30,325" fill="#1a1a1a" opacity="0.06"/><polygon points="424,398 427,407 437,407 429,413 432,422 424,416 416,422 419,413 411,407 421,407" fill="#1a1a1a" opacity="0.06"/><path d="M390 568 C390 548 403 537 416 541 C408 545 403 556 403 566 C403 576 408 587 416 590 C403 594 390 585 390 568Z" fill="#1a1a1a" opacity="0.08"/><polygon points="422,543 425,552 435,552 427,558 430,567 422,561 414,567 417,558 409,552 419,552" fill="#1a1a1a" opacity="0.07"/><polygon points="32,604 35,613 45,613 37,619 40,628 32,622 24,628 27,619 19,613 29,613" fill="#1a1a1a" opacity="0.07"/><path d="M0 644 Q220 566 440 644" stroke="#1a1a1a" stroke-width="1" fill="none" opacity="0.04"/>`;
+
+  const OCC={
+    fitr:{ar:{intro:'أهنئكم بحلول',title:'عِيدُ الفِطرِ المُبارَك',heading:'عيدكم مبارك',sub:'أعاده الله علينا وعليكم باليُمن والبركات',sub2:'وكل عام وأنتم بخير'},en:{intro:'Wishing you a blessed',title:'Eid Fitr Mubarak',sub:'May Allah return it upon us and you with goodness and blessings',sub2:'Wishing you well every year'},decor:null},
+    adha:{ar:{intro:'أهنئكم بحلول',title:'عِيدُ الأَضحَى المُبارَك',heading:'عيدكم مبارك',sub:'أعاده الله علينا وعليكم باليُمن والبركات\nنسأل الله أن يتقبَّل من الحجاج حجَّهم',sub2:'وكل عام وأنتم بخير'},en:{intro:'Wishing you a blessed',title:'Eid Adha Mubarak',sub:'May Allah accept the pilgrimage of all Hajj pilgrims\nand return this occasion with goodness and blessings',sub2:'Wishing you well every year'},decor:null},
+    ramadan:{ar:{intro:'يسعدنا أن نُهنئكم بحلول',title:'شَهرُ رَمَضانَ المُبارَك',heading:'رمضان كريم',sub:'أعاده الله علينا وعليكم بالخير واليُمن والبركات\nنسأل الله أن يُعيننا على الصيام والقيام وصالح الأعمال',sub2:'وكل عام وأنتم بخير'},en:{intro:'Wishing you a blessed',title:'Ramadan Mubarak',sub:'May Allah return it upon us and you with goodness and blessings\nand grant us the strength for fasting, prayer, and good deeds',sub2:'Wishing you well every year'},decor:null}
+  };
+  OCC.fitr.decor=DECOR_FITR;OCC.adha.decor=DECOR_ADHA;OCC.ramadan.decor=DECOR_RAMADAN;
+
+  const T={
+    ar:{title:'نوع الإعلان',colleague:'اسم الزميل',gender_c:'جنس الزميل',relation:'صلة المتوفى',cname:'اسم جهة التواصل',email:'إيميل',phone:'جوال',preview:'معاينة البطاقة',export:'تصدير PNG',cardlang:'البطاقة',gender_g:'الجنس',sender_name:'اسمك',sender_title:'المسمى الوظيفي',note_self:'جهة التواصل: <span>أحد من أهل الزميل المتوفى</span>',note_other:'جهة التواصل: <span>الزميل نفسه للمواساة</span>',tabs:{condolence:'تعزية',fitr:'عيد الفطر',adha:'عيد الأضحى',ramadan:'رمضان'},gender_opts:['ذكر','أنثى'],relations:[{v:'self_male',t:'الزميل نفسه'},{v:'self_female',t:'الزميلة نفسها'},{v:'father',t:'والده'},{v:'mother',t:'والدته'},{v:'husband',t:'زوجه'},{v:'wife',t:'زوجته'},{v:'brother',t:'أخوه'},{v:'sister',t:'أخته'},{v:'son',t:'ابنه'},{v:'daughter',t:'ابنته'}]},
+    en:{title:'Announcement Type',colleague:'Colleague Name',gender_c:'Colleague Gender',relation:'Relation',cname:'Contact Name',email:'Email',phone:'Mobile',preview:'Preview Card',export:'Export PNG',cardlang:'Card Language',gender_g:'Gender',sender_name:'Your Name',sender_title:'Job Title',note_self:'Contact: <span>a family member of the deceased</span>',note_other:'Contact: <span>the colleague to offer condolences</span>',tabs:{condolence:'Condolence',fitr:'Eid Al-Fitr',adha:'Eid Al-Adha',ramadan:'Ramadan'},gender_opts:['Male','Female'],relations:[{v:'self_male',t:'The colleague himself'},{v:'self_female',t:'The colleague herself'},{v:'father',t:'His father'},{v:'mother',t:'His/Her mother'},{v:'husband',t:'His/Her husband'},{v:'wife',t:'His wife'},{v:'brother',t:'His/Her brother'},{v:'sister',t:'His/Her sister'},{v:'son',t:'His/Her son'},{v:'daughter',t:'His/Her daughter'}]}
+  };
+  const relAr={self_male:'زميلنا',self_female:'زميلتنا',father:'والد',mother:'والدة',husband:'زوج',wife:'زوجة',brother:'أخ',sister:'أخت',son:'ابن',daughter:'ابنة'};
+  const relEn={self_male:'our colleague',self_female:'our colleague',father:'the father of our colleague',mother:'the mother of our colleague',husband:'the husband of our colleague',wife:'the wife of our colleague',brother:'the brother of our colleague',sister:'the sister of our colleague',son:'the son of our colleague',daughter:'the daughter of our colleague'};
+
+  function setType(t){currentType=t;['condolence','fitr','adha','ramadan'].forEach(x=>document.getElementById('tab_'+x).classList.toggle('active',x===t));document.getElementById('condolence_fields').style.display=t==='condolence'?'flex':'none';document.getElementById('greeting_fields').style.display=t!=='condolence'?'flex':'none';}
+  function setCardLang(l){cardLang=l;document.getElementById('csel_ar').classList.toggle('active',l==='ar');document.getElementById('csel_en').classList.toggle('active',l==='en');}
+  function setLang(l){lang=l;['btn_ar','btn_en'].forEach(id=>document.getElementById(id).classList.toggle('active',id==='btn_'+l));document.getElementById('panel').style.direction=l==='ar'?'rtl':'ltr';const t=T[l];const m={lbl_title:t.title,lbl_colleague:t.colleague,lbl_gender_c:t.gender_c,lbl_relation:t.relation,lbl_cname:t.cname,lbl_email:t.email,lbl_phone:t.phone,lbl_sender_name:t.sender_name,lbl_sender_title:t.sender_title,lbl_cardlang:t.cardlang,lbl_gender_g:t.gender_g,btn_preview:t.preview,btn_export:t.export};Object.entries(m).forEach(([id,v])=>{const el=document.getElementById(id);if(el)el.textContent=v;});['condolence','fitr','adha','ramadan'].forEach(tp=>document.getElementById('tab_'+tp).textContent=t.tabs[tp]);document.getElementById('btn_male_g').textContent=t.gender_opts[0];document.getElementById('btn_female_g').textContent=t.gender_opts[1];const sel=document.getElementById('relation');const prev=sel.value;sel.innerHTML='';t.relations.forEach(r=>{const o=document.createElement('option');o.value=r.v;o.textContent=r.t;sel.appendChild(o);});if(prev)sel.value=prev;updateContactNote();}
+  function setGenderC(g){genderC=g;['male','female'].forEach(x=>document.getElementById('btn_'+x+'_c').classList.toggle('active',x===g));}
+  function setGenderG(g){genderG=g;['male','female'].forEach(x=>document.getElementById('btn_'+x+'_g').classList.toggle('active',x===g));}
+  function updateContactNote(){const rel=document.getElementById('relation').value;const isSelf=rel==='self_male'||rel==='self_female';document.getElementById('contact_note').innerHTML=isSelf?T[lang].note_self:T[lang].note_other;}
+  function deceasedGender(rel){return['self_male','father','husband','brother','son'].includes(rel)?'male':'female';}
+  function generate(){currentType==='condolence'?genCondolence():genGreeting(currentType);}
+
+  function genCondolence(){
+    const colleague=document.getElementById('colleague_name').value.trim()||'—';
+    const rel=document.getElementById('relation').value;
+    const cName=document.getElementById('contact_name').value.trim()||'—';
+    const cEmail=document.getElementById('contact_email').value.trim()||'—';
+    const cPhone=document.getElementById('contact_phone').value.trim()||'—';
+    const dG=deceasedGender(rel);const isSelf=rel==='self_male'||rel==='self_female';
+    const rooh=dG==='female'?'روحها':'روحه';const yaskun=dG==='female'?'يسكنها':'يسكنه';
+    const yajzi=dG==='female'?'ويجزيها':'ويجزيه';const ahl=dG==='female'?'أهلها وذويها':'أهله وذويه';
+    const pron=dG==='female'?'her':'his';const pronCap=dG==='female'?'Her':'His';
+    const cLabel=genderC==='female'?'زميلتنا':'زميلنا';
+    let html='';
+    if(cardLang==='ar'){
+      const body=isSelf?`بالغ الأسى وقلوب مؤمنة بقضاء الله وقدره، تنعى <strong>AECOM السعودية</strong> وفاة ${cLabel} <strong>${colleague}</strong>. نسأل الله أن يتغمد ${rooh} بواسع رحمته، ${yaskun} فسيح جنانه ${yajzi} خير الجزاء، وأن يلهم ${ahl} الصبر والسلوان.`:`بالغ الأسى وقلوب مؤمنة بقضاء الله وقدره، تنعى <strong>AECOM السعودية</strong> وفاة <strong>${relAr[rel]}</strong> ${cLabel} <strong>${colleague}</strong>. نسأل الله أن يتغمد ${rooh} بواسع رحمته، ${yaskun} فسيح جنانه ${yajzi} خير الجزاء، وأن يلهم ${ahl} الصبر والسلوان.`;
+      html=`<div class="card-logo">AECOM</div><div class="card-ayah">يَا أَيَّتُهَا النَّفْسُ الْمُطْمَئِنَّةُ ارْجِعِي إِلَىٰ رَبِّكِ رَاضِيَةً مَّرْضِيَّةً فَادْخُلِي فِي عِبَادِي وَادْخُلِي جَنَّتِي</div><p class="card-body">${body}</p><div class="card-contact"><strong>${isSelf?'للتواصل مع أهل الفقيد:':'للتواصل مع الزميل:'}</strong>${cName}<br/>${cEmail}<br/>${cPhone}</div>`;
+    }else{
+      const body=isSelf?`With deep sorrow and hearts that believe in Allah's will and decree, <strong>AECOM Saudi Arabia</strong> mourns the passing of our colleague <strong>${colleague}</strong>. We ask Allah Almighty to envelop ${pron} in His vast mercy, grant ${pron} a place in His spacious Paradise, and inspire ${pronCap} family with patience and comfort.`:`With deep sorrow and hearts that believe in Allah's will and decree, <strong>AECOM Saudi Arabia</strong> mourns the passing of ${relEn[rel]} <strong>${colleague}</strong>. We ask Allah Almighty to envelop ${pron} in His vast mercy, grant ${pron} a place in His spacious Paradise, and inspire ${pronCap} family with patience and comfort.`;
+      html=`<div class="card-logo">AECOM</div><div class="card-ayah-en">"O tranquil soul, return to your Lord, well-pleased and pleasing to Him. Enter among My servants, and enter My Paradise."</div><p class="card-body">${body}</p><div class="card-contact"><strong>${isSelf?'For condolences (family):':'For condolences (colleague):'}</strong>${cName}<br/>${cEmail}<br/>${cPhone}</div>`;
+    }
+    document.getElementById('preview_area').innerHTML=`<div class="card-wrap" style="background:#d4d4d4"><div class="card-content ${cardLang}">${html}</div><div class="card-bar" style="background:#5cb85c"></div></div>`;
+  }
+
+  function genGreeting(type){
+    const isAr=cardLang==='ar';
+    const occ=OCC[type][isAr?'ar':'en'];
+    const sLabel=isAr?(genderG==='female'?'أختكم / زميلتكم':'أخوكم / زميلكم'):(genderG==='female'?'Sincerely':'Regards');
+    const sName=document.getElementById('sender_name').value.trim()||'AECOM';
+    const sTitle=document.getElementById('sender_title').value.trim()||'';
+    const subHtml=occ.sub.replace(/\n/g,'<br/>');
+    const tClass=isAr?'greet-title-ar':'greet-title-en';
+    const html=`<div class="greet-logo">AECOM</div><div class="greet-intro">${occ.intro}</div><div class="${tClass}">${occ.title}</div>${isAr&&occ.heading?`<div class="greet-heading">${occ.heading}</div>`:''}<div class="greet-sub1">${subHtml}</div><div class="greet-stars">❋ &nbsp; ❋</div><div class="greet-sub2">${occ.sub2}</div><div class="greet-sender"><div class="greet-sender-label">${sLabel}</div><div class="greet-sender-name">${sName}</div>${sTitle?`<div class="greet-sender-title">${sTitle}</div>`:''}<div class="greet-company">AECOM SAUDI ARABIA</div></div>`;
+    document.getElementById('preview_area').innerHTML=`<div class="card-wrap" style="background:#d6e8c4"><svg class="decor" viewBox="0 0 440 620" fill="none" xmlns="http://www.w3.org/2000/svg">${OCC[type].decor}</svg><div class="card-content ${cardLang}">${html}</div><div class="card-bar" style="background:#5cb85c"></div></div>`;
+  }
+
+  function exportPNG(){
+    const area=document.getElementById('preview_area');
+    if(area.querySelector('.placeholder-hint')){alert(lang==='ar'?'اضغط أولاً على "معاينة البطاقة"':'Click "Preview Card" first');return;}
+    const card=area.querySelector('.card-wrap');
+    if(!card)return;
+    const ow=card.style.width,oh=card.style.height;
+    const bgColor=card.style.background||'#d4d4d4';
+    card.style.width='1080px';card.style.height='1080px';
+    html2canvas(card,{scale:1,useCORS:true,allowTaint:true,backgroundColor:bgColor,width:1080,height:1080,logging:false,imageTimeout:0,removeContainer:true}).then(canvas=>{
+      card.style.width=ow;card.style.height=oh;
+      const a=document.createElement('a');a.download='AECOM-announcement.png';a.href=canvas.toDataURL('image/png');a.click();
+    }).catch(()=>{card.style.width=ow;card.style.height=oh;alert('خطأ في التصدير');});
+  }
+
+  setLang('ar');setType('condolence');updateContactNote();
+</script>
+
+<div style="position:fixed;bottom:6px;left:0;right:0;text-align:center;font-family:'Tajawal',sans-serif;font-size:11px;color:#aaa;direction:rtl;z-index:999">
+  صُمِّم بواسطة نورة اللحياني &mdash; AECOM Saudi Arabia &copy; 2025
+</div>
+</body>
+</html>
