@@ -1,4 +1,4 @@
-[index.html.html](https://github.com/user-attachments/files/27576574/index.html.html)
+[Index.html](https://github.com/user-attachments/files/27576810/Index.html)
 <!DOCTYPE html>
 <html lang="ar">
 <head>
@@ -40,31 +40,31 @@
     .btn-pdf:hover{background:#4a9e4a}
     .condolence-fields,.greeting-fields{display:flex;flex-direction:column;gap:11px}
     .preview-area{flex:1;display:flex;align-items:center;justify-content:center;padding:30px;overflow:auto;background:#e8e8e8}
-    .card-wrap{position:relative;width:440px;height:620px;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,.2)}
+    .card-wrap{position:relative;width:500px;height:500px;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,.2)}
     .card-wrap svg.decor{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:1}
-    .card-content{position:relative;z-index:2;width:100%;height:100%;display:flex;flex-direction:column;padding:44px 40px 36px}
+    .card-content{position:relative;z-index:2;width:100%;height:100%;display:flex;flex-direction:column;padding:36px 38px 32px}
     .card-content.ar{direction:rtl;text-align:right}
     .card-content.en{direction:ltr;text-align:left}
-    .card-bar{position:absolute;bottom:0;left:0;right:0;height:11px;z-index:3}
-    .card-logo{font-size:1.2rem;font-weight:700;letter-spacing:4px;color:#1a1a1a;direction:ltr;margin-bottom:6px}
-    .card-ayah{font-family:'Amiri',serif;font-size:.95rem;color:#1a1a1a;line-height:2.1;margin:7px 0}
-    .card-ayah-en{font-family:'Amiri',serif;font-style:italic;font-size:.84rem;color:#1a1a1a;line-height:1.9;margin:7px 0}
-    .card-body{font-size:.79rem;color:#2a2a2a;line-height:2}
+    .card-bar{position:absolute;bottom:0;left:0;right:0;height:10px;z-index:3}
+    .card-logo{font-size:1.4rem;font-weight:700;letter-spacing:5px;color:#1a1a1a;direction:ltr;margin-bottom:10px;border-bottom:2px solid rgba(0,0,0,0.1);padding-bottom:10px}
+    .card-ayah{font-family:'Amiri',serif;font-size:1rem;color:#1a1a1a;line-height:2;margin:12px 0}
+    .card-ayah-en{font-family:'Amiri',serif;font-style:italic;font-size:.88rem;color:#1a1a1a;line-height:1.9;margin:12px 0}
+    .card-body{font-size:.82rem;color:#2a2a2a;line-height:1.9;flex:1}
     .card-body strong{font-weight:700}
-    .card-contact{margin-top:auto;padding-top:12px;border-top:1px solid rgba(0,0,0,.15);font-size:.71rem;color:#555;line-height:1.9}
-    .card-contact strong{color:#1a1a1a;display:block;font-size:.74rem;margin-bottom:2px}
-    .greet-logo{font-size:1.2rem;font-weight:700;letter-spacing:4px;color:#1a1a1a;direction:ltr}
-    .greet-intro{font-size:.9rem;color:#3a3a3a;line-height:1.9;margin-top:20px}
-    .greet-title-ar{font-family:'Amiri',serif;font-size:2.2rem;font-weight:400;font-style:italic;color:#1a1a1a;line-height:1.5;margin:8px 0 14px}
-    .greet-title-en{font-family:'Amiri',serif;font-style:italic;font-size:1.7rem;font-weight:400;color:#1a1a1a;line-height:1.5;margin:8px 0 14px}
-    .greet-heading{font-family:'Amiri',serif;font-size:1.05rem;color:#2a2a2a;margin-bottom:8px;font-weight:700}
-    .greet-sub1{font-size:.84rem;color:#3a3a3a;line-height:2;white-space:pre-line}
-    .greet-stars{font-size:.9rem;opacity:.3;margin:11px 0;letter-spacing:12px}
-    .greet-sub2{font-family:'Amiri',serif;font-style:italic;font-size:.84rem;color:#444}
-    .greet-sender{margin-top:auto}
-    .greet-sender-label{font-size:.76rem;color:#6b6560}
-    .greet-sender-name{font-size:1rem;font-weight:700;color:#1a1a1a;margin-top:2px}
-    .greet-sender-title{font-size:.76rem;color:#555;margin-top:2px}
+    .card-contact{padding-top:12px;border-top:1px solid rgba(0,0,0,.15);font-size:.72rem;color:#555;line-height:1.8}
+    .card-contact strong{color:#1a1a1a;display:block;font-size:.75rem;margin-bottom:2px}
+    .greet-logo{font-size:1.4rem;font-weight:700;letter-spacing:5px;color:#1a1a1a;direction:ltr;border-bottom:2px solid rgba(0,0,0,0.1);padding-bottom:10px;margin-bottom:6px}
+    .greet-intro{font-size:.88rem;color:#3a3a3a;line-height:1.9;margin-top:10px}
+    .greet-title-ar{font-family:'Amiri',serif;font-size:2rem;font-weight:400;font-style:italic;color:#1a1a1a;line-height:1.4;margin:6px 0 10px}
+    .greet-title-en{font-family:'Amiri',serif;font-style:italic;font-size:1.6rem;font-weight:400;color:#1a1a1a;line-height:1.4;margin:6px 0 10px}
+    .greet-heading{font-family:'Amiri',serif;font-size:1rem;color:#2a2a2a;margin-bottom:6px;font-weight:700}
+    .greet-sub1{font-size:.82rem;color:#3a3a3a;line-height:1.9;white-space:pre-line;flex:1}
+    .greet-stars{font-size:.9rem;opacity:.3;margin:8px 0;letter-spacing:10px}
+    .greet-sub2{font-family:'Amiri',serif;font-style:italic;font-size:.82rem;color:#444;margin-bottom:10px}
+    .greet-sender{padding-top:10px;border-top:1px solid rgba(0,0,0,.12)}
+    .greet-sender-label{font-size:.75rem;color:#6b6560}
+    .greet-sender-name{font-size:.95rem;font-weight:700;color:#1a1a1a;margin-top:2px}
+    .greet-sender-title{font-size:.75rem;color:#555;margin-top:1px}
     .greet-company{font-size:.68rem;color:#888;margin-top:3px;letter-spacing:1px;direction:ltr;display:inline-block}
     .placeholder-hint{color:#aaa;font-style:italic;font-size:.9rem;text-align:center}
   </style>
@@ -189,7 +189,7 @@
     const subHtml=occ.sub.replace(/\n/g,'<br/>');
     const tClass=isAr?'greet-title-ar':'greet-title-en';
     const html=`<div class="greet-logo">AECOM</div><div class="greet-intro">${occ.intro}</div><div class="${tClass}">${occ.title}</div>${isAr&&occ.heading?`<div class="greet-heading">${occ.heading}</div>`:''}<div class="greet-sub1">${subHtml}</div><div class="greet-stars">❋ &nbsp; ❋</div><div class="greet-sub2">${occ.sub2}</div><div class="greet-sender"><div class="greet-sender-label">${sLabel}</div><div class="greet-sender-name">${sName}</div>${sTitle?`<div class="greet-sender-title">${sTitle}</div>`:''}<div class="greet-company">AECOM SAUDI ARABIA</div></div>`;
-    document.getElementById('preview_area').innerHTML=`<div class="card-wrap" style="background:#d6e8c4"><svg class="decor" viewBox="0 0 440 620" fill="none" xmlns="http://www.w3.org/2000/svg">${OCC[type].decor}</svg><div class="card-content ${cardLang}">${html}</div><div class="card-bar" style="background:#5cb85c"></div></div>`;
+    document.getElementById('preview_area').innerHTML=`<div class="card-wrap" style="background:#d6e8c4"><svg class="decor" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">${OCC[type].decor}</svg><div class="card-content ${cardLang}">${html}</div><div class="card-bar" style="background:#5cb85c"></div></div>`;
   }
 
   function exportPNG(){
@@ -199,8 +199,9 @@
     if(!card)return;
     const ow=card.style.width,oh=card.style.height;
     const bgColor=card.style.background||'#d4d4d4';
-    card.style.width='1080px';card.style.height='1080px';
-    html2canvas(card,{scale:1,useCORS:true,allowTaint:true,backgroundColor:bgColor,width:1080,height:1080,logging:false,imageTimeout:0,removeContainer:true}).then(canvas=>{
+    // set to 540px so scale:2 gives 1080x1080
+    card.style.width='540px';card.style.height='540px';
+    html2canvas(card,{scale:2,useCORS:true,allowTaint:true,backgroundColor:bgColor,width:540,height:540,logging:false}).then(canvas=>{
       card.style.width=ow;card.style.height=oh;
       const a=document.createElement('a');a.download='AECOM-announcement.png';a.href=canvas.toDataURL('image/png');a.click();
     }).catch(()=>{card.style.width=ow;card.style.height=oh;alert('خطأ في التصدير');});
